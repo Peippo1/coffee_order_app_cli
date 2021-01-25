@@ -1,0 +1,26 @@
+{
+  "name": "coffee_order_app_cli",
+  "version": "1.0.0",
+  "description": "coffee order app cli made with node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peippo1/coffee_order_app_cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Peippo1/coffee_order_app_cli/issues"
+  },
+  "homepage": "https://github.com/Peippo1/coffee_order_app_cli#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "figlet": "^1.5.0",
+    "inquirer": "^7.3.3",
+    "yarg": "^1.0.8"
+  }
+}
