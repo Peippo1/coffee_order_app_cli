@@ -1,64 +1,66 @@
 const yargs = require("yargs");
 const fs = require("fs");
 const chalk = require('chalk');
-const { allOrders } = require("process");
+const { answers } = require("process");
 
 // function for adding orders to total order.
 const addOrder = (myOrder) => {
-    const allOrders = loadNotes();
+    const allOrders = loadOrders();
     allOrders.push({ reminder: myOrder });
-    console.log(`
-  Added new note ${myOrder}
-  `);
-  saveOrders(allOrders);
+  //   console.log(`
+  // Added new order ${myOrder}
+  // `);
+  saveOrders(answers);
 };
 // try/catch is to catch errors in the ui that would result in crashes.
 const loadOrders = () => {
     try {
-      const dataBuffer = fs.readFileSync("srs/orders.json");
+      const dataBuffer = fs.readFileSync("src/orders.json");
       const OrdersJson = dataBuffer.toString();
-      return JSON.parse(OrdersJson);
+      return JSON.parse(ordersJson);
     } catch (error) {
       return [];
     }
   };
 
 // All orders are to be passed into the array so be saved as a Json and then passed to the specified file.
-const saveOrders = (allOrders) => {
-  const ordersJson = JSON.stringify(allOrders);
-  fs.writeFileSync("orders.json", ordersJson);
+const saveAnswers = (answers) => {
+  const ordersJson = JSON.stringify(answers);
+  fs.writeFileSync("src/orders.json", ordersJson);
 };
 
-// Listing orders using maping 
+// // Listing orders using maping 
 const listOrders = () => {
-  const allOrders = loadOrders();
-  allOrders.map((order, index) => {
-    console.log(chalk.green(`
+  const answers = loadOrders();
+  answers.map((order, index) => {
+    console.log((`
     ${index + 1}. ${order.reminder}
     `));
   });
 };
 
 
-function removeOrder(orderToDelete) {
-  const allOrders = loadOrders();
+function removeAnswer(orderToDelete) {
+  const answers = loadOrders();
 
   try {
-      const removedItem = allOrdes.splice(orderToDelete - 1, 1);
+      const removedItem = answers.splice(orderToDelete - 1, 1);
       // Splicing index of removed order. Indexed number first and then number of items to be removed from the order.
       console.log(`
-      order has been removed ${removedOrder[0].reminder}
+      order has been removed ${removeAnswer[0].reminder}
       `);
       // Removing order item within the array.
   } catch (error) {
       console.log("Number out of range");
   }
-// Save orders after changes are made.
-  saveOrders(allOrders);
+
 };
+// Save orders after changes are made.
+  saveAnswers(answers);
+
 // Export. list items to be exported.
 module.exports = {
   addOrder,
   listOrders,
-  removeOrder,
+  removeAnswer,
 };
