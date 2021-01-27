@@ -1,4 +1,4 @@
-const yargs = require("yargs");
+// const yargs = require("yargs");
 const fs = require("fs");
 const chalk = require('chalk');
 const { answers } = require("process");
@@ -6,11 +6,11 @@ const { answers } = require("process");
 // function for adding orders to total order.
 const addOrder = (myOrder) => {
     const allOrders = loadOrders();
-    allOrders.push({ reminder: myOrder });
+    allOrders.push(myOrder);
   //   console.log(`
   // Added new order ${myOrder}
   // `);
-  saveOrders(answers);
+  saveAnswers(allOrders);
 };
 // try/catch is to catch errors in the ui that would result in crashes.
 const loadOrders = () => {
@@ -24,8 +24,8 @@ const loadOrders = () => {
   };
 
 // All orders are to be passed into the array so be saved as a Json and then passed to the specified file.
-const saveAnswers = (answers) => {
-  const ordersJson = JSON.stringify(answers);
+const saveAnswers = (allOrders) => {
+  const ordersJson = JSON.stringify(allOrders);
   fs.writeFileSync("src/orders.json", ordersJson);
 };
 
@@ -41,10 +41,10 @@ const listOrders = () => {
 
 
 function removeAnswer(orderToDelete) {
-  const answers = loadOrders();
+  const allOrders = loadOrders();
 
   try {
-      const removedItem = answers.splice(orderToDelete - 1, 1);
+      const removedItem = allOrders.splice(orderToDelete - 1, 1);
       // Splicing index of removed order. Indexed number first and then number of items to be removed from the order.
       console.log(`
       order has been removed ${removeAnswer[0].reminder}
@@ -55,12 +55,12 @@ function removeAnswer(orderToDelete) {
   }
 
 };
-// Save orders after changes are made.
-  saveAnswers(answers);
+allOrders();
 
 // Export. list items to be exported.
 module.exports = {
-  addOrder,
-  listOrders,
-  removeAnswer,
+  allOrders,
+  // addOrder,
+  // listOrders,
+  // removeAnswer,
 };

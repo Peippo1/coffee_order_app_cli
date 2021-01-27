@@ -1,5 +1,5 @@
-const yargs = require("yargs");
-// Allows for pirate speak to parse yer strings.
+// const yargs = require("yargs");
+// // Allows for pirate speak to parse yer strings.
 const figlet = require("figlet");
 // Impliment FIG font - Ascii art.
 const inquirer = require("inquirer");
@@ -7,7 +7,7 @@ const inquirer = require("inquirer");
 // uses promises.
 const chalk = require('chalk');
 // Chalk npm for color - remember to check syntax.
-const {addOrders, listOrders, removeAnswer, addOrder} = require("../utils/orders");
+const {allOrders} = require("../utils/orders");
 // Importing from local.
 
 // ammend figlet font > maybe a pirate ship...?
@@ -52,9 +52,9 @@ let questions = [{
 },
 ];
 // return statement of total order
-inquirer.prompt(questions).then((answers) => {
+inquirer.prompt(questions).then((allOrders) => {
     console.log("\nOrder receipt:");
-    console.log(JSON.stringify(answers, null, "  "));
+    console.log(JSON.stringify(allOrders, null, "  "));
     console.log("Yarr Have a great day!")
 }
 
