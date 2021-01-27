@@ -7,7 +7,7 @@ const inquirer = require("inquirer");
 // uses promises.
 const chalk = require('chalk');
 // Chalk npm for color - remember to check syntax.
-const {allOrders} = require("../utils/orders");
+import { addOrder, allOrders } from require("../utils/orders");
 // Importing from local.
 
 // ammend figlet font > maybe a pirate ship...?
@@ -15,9 +15,9 @@ const {allOrders} = require("../utils/orders");
 // option to order additional drinks>> if/else statement
 // ___________________________________________________________________________________________________________
 
-const main = () => { 
+function main() {
     console.log(chalk.blue.underline.bold("Avast! welcome to Swashbucklers coffee!"));
-};
+}
 // above needs to be a header. ^
 
 let questions = [{
@@ -52,9 +52,9 @@ let questions = [{
 },
 ];
 // return statement of total order
-inquirer.prompt(questions).then((allOrders) => {
+inquirer.prompt(questions).then((addOrder) => {
     console.log("\nOrder receipt:");
-    console.log(JSON.stringify(allOrders, null, "  "));
+    console.log(JSON.stringify(addOrder, null, "  "));
     console.log("Yarr Have a great day!")
 }
 
@@ -62,5 +62,5 @@ inquirer.prompt(questions).then((allOrders) => {
 
 
 main();
-
+addOrder();
 // node src/app.js to call

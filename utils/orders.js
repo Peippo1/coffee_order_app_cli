@@ -1,7 +1,8 @@
 // const yargs = require("yargs");
 const fs = require("fs");
 const chalk = require('chalk');
-const { answers } = require("process");
+import (allOrders , addOrder) =from (/src/app/js);
+const { allOrders , addOrder } = ("process");
 
 // function for adding orders to total order.
 const addOrder = (myOrder) => {
@@ -40,27 +41,27 @@ const listOrders = () => {
 };
 
 
-function removeAnswer(orderToDelete) {
-  const allOrders = loadOrders();
+// function removeAnswer(orderToDelete) {
+//   const allOrders = loadOrders();
 
-  try {
-      const removedItem = allOrders.splice(orderToDelete - 1, 1);
-      // Splicing index of removed order. Indexed number first and then number of items to be removed from the order.
-      console.log(`
-      order has been removed ${removeAnswer[0].reminder}
-      `);
-      // Removing order item within the array.
-  } catch (error) {
-      console.log("Number out of range");
-  }
+//   try {
+//       const removedItem = allOrders.splice(orderToDelete - 1, 1);
+//       // Splicing index of removed order. Indexed number first and then number of items to be removed from the order.
+//       console.log(`
+//       order has been removed ${removeAnswer[0].reminder}
+//       `);
+//       // Removing order item within the array.
+//   } catch (error) {
+//       console.log("Number out of range");
+//   }
 
-};
+// };
 allOrders();
 
 // Export. list items to be exported.
 module.exports = {
   allOrders,
-  // addOrder,
+  addOrder,
   // listOrders,
   // removeAnswer,
 };
