@@ -1,7 +1,6 @@
 // const yargs = require("yargs");
 const fs = require("fs");
 const chalk = require('chalk');
-import (allOrders , addOrder) =from (/src/app/js);
 const { allOrders , addOrder } = ("process");
 
 // function for adding orders to total order.
